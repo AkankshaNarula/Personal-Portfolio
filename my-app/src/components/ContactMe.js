@@ -1,60 +1,68 @@
 import React, { useState } from 'react';
 
-  export default function EnhancedContactForm() {
-    const [formData, setFormData] = useState({
-      firstName: '',
-      lastName: '',
-      email: '',
-      message: '',
+export default function EnhancedContactForm() {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    message: '',
+  });
+
+  const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
     });
-  
-    const [errors, setErrors] = useState({});
-    const [isSubmitting, setIsSubmitting] = useState(false);
-    const [submitSuccess, setSubmitSuccess] = useState(false);
-  
-    const handleInputChange = (e) => {
-      const { name, value } = e.target;
-      setFormData({
-        ...formData,
-        [name]: value,
-      });
-    };
-  
-    const validate = () => {
-      const errors = {};
-      if (!formData.firstName) errors.firstName = 'First Name is required';
-      if (!formData.lastName) errors.lastName = 'Last Name is required';
-      if (!formData.email) errors.email = 'Email is required';
-      if (!formData.message) errors.message = 'Message is required';
-      return errors;
-    };
-  
-    const handleSubmit = async (e) => {
-      e.preventDefault();
-      const validationErrors = validate();
-      if (Object.keys(validationErrors).length > 0) {
-        setErrors(validationErrors);
-        return;
-      }
-  
-      setIsSubmitting(true);
-      setErrors({});
-  
-      try {
-        // Simulate form submission (replace with your submission logic)
-        await new Promise((resolve) => setTimeout(resolve, 2000));
-        setSubmitSuccess(true);
-      } catch (error) {
-        console.error('Form submission error:', error);
-        setErrors({ submit: 'Something went wrong. Please try again later.' });
-      } finally {
-        setIsSubmitting(false);
-      }
-    };
-  
-    return (
-      <section id="contactme" className="min-h-screen p-8">
-      <form className="bg-gray-900 text-white p-8 rounded-lg shadow-lg max-w-lg mx-auto" onSubmit={handleSubmit}>
+  };
+
+  const validate = () => {
+    const errors = {};
+    if (!formData.firstName) errors.firstName = 'First Name is required';
+    if (!formData.lastName) errors.lastName = 'Last Name is required';
+    if (!formData.email) errors.email = 'Email is required';
+    if (!formData.message) errors.message = 'Message is required';
+    return errors;
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const validationErrors = validate();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+
+    setIsSubmitting(true);
+    setErrors({});
+
+    try {
+      // Simulate form submission (replace with your submission logic)
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      setSubmitSuccess(true);
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setErrors({ submit: 'Something went wrong. Please try again later.' });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  return (
+    <section
+      id="contactme"
+      className="min-h-screen p-8"
+      style={{
+        backgroundImage: "url('/images/contact.png')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
+      <form className="bg-gray-900 bg-opacity-75 text-white p-8 rounded-lg shadow-lg max-w-lg mx-auto" onSubmit={handleSubmit}>
         <div className="space-y-6">
           <div className="text-center">
             <h2 className="text-2xl font-semibold leading-7">Contact Me</h2>
@@ -62,19 +70,19 @@ import React, { useState } from 'react';
               Fill in the form below to send me a message.
             </p>
           </div>
-  
+
           {submitSuccess && (
             <div className="bg-green-100 text-green-800 p-3 rounded-md">
               Your message has been sent successfully!
             </div>
           )}
-  
+
           {errors.submit && (
             <div className="bg-red-100 text-red-800 p-3 rounded-md">
               {errors.submit}
             </div>
           )}
-  
+
           <div>
             <label htmlFor="firstName" className="block text-sm font-medium">
               First Name
@@ -93,7 +101,7 @@ import React, { useState } from 'react';
               {errors.firstName && <p className="text-red-500 text-sm">{errors.firstName}</p>}
             </div>
           </div>
-  
+
           <div>
             <label htmlFor="lastName" className="block text-sm font-medium">
               Last Name
@@ -112,7 +120,7 @@ import React, { useState } from 'react';
               {errors.lastName && <p className="text-red-500 text-sm">{errors.lastName}</p>}
             </div>
           </div>
-  
+
           <div>
             <label htmlFor="email" className="block text-sm font-medium">
               Email Address
@@ -131,7 +139,7 @@ import React, { useState } from 'react';
               {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
             </div>
           </div>
-  
+
           <div>
             <label htmlFor="message" className="block text-sm font-medium">
               Message
@@ -150,7 +158,7 @@ import React, { useState } from 'react';
               {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
             </div>
           </div>
-  
+
           <div className="text-center">
             <button
               type="submit"
@@ -164,7 +172,6 @@ import React, { useState } from 'react';
           </div>
         </div>
       </form>
-    );
-  </section>
-  )}
-  
+    </section>
+  );
+}
