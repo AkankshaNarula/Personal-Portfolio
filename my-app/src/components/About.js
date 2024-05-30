@@ -33,7 +33,7 @@ const About = () => {
   });
 
   return (
-    <section
+    <section id = "about"
       className="relative h-screen flex items-center justify-center text-white"
       style={{
         backgroundImage: "url('/images/aboutbg.png')",
