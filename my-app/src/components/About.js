@@ -28,8 +28,8 @@ const About = () => {
   // React Spring animation for the purple circles
   const circleAnimation = useSpring({
     from: { opacity: 0, transform: 'translateY(20px)' },
-    to: { opacity: 1, transform: 'translateY(0)' },
-    config: { duration: 500 },
+    to: { opacity: 0.75, transform: 'translateY(0)' },
+    config: { duration: 1000 },
   });
 
   return (
@@ -81,18 +81,42 @@ const About = () => {
       </div>
       {/* Animated purple circles */}
       <animated.div
-        className="absolute bottom-16 left-1/4 transform -translate-x-1/2 bg-purple-800 w-20 h-20 sm:w-32 sm:h-32 rounded-full opacity-80"
-        style={circleAnimation}
+        className="absolute bottom-72 left-0.5 transform -translate-x-1/2 bg-purple-800 rounded-full opacity-80"
+        style={{
+          ...circleAnimation,
+          width: '10vw',
+          height: '10vw',
+        }}
       ></animated.div>
       <animated.div
-        className="absolute bottom-24 right-1/4 transform translate-x-1/2 bg-purple-600 w-32 h-32 sm:w-48 sm:h-48 rounded-full opacity-90"
-        style={circleAnimation}
+        className="absolute bottom-24 right-3/4 transform translate-x-1/2 bg-purple-600 rounded-full opacity-90"
+        style={{
+          ...circleAnimation,
+          width: '16vw',
+          height: '16vw',
+        }}
+      ></animated.div>
+      <animated.div
+        className="absolute bottom-72 right-0.5 transform -translate-x-1/2 bg-purple-800 rounded-full opacity-80"
+        style={{
+          ...circleAnimation,
+          width: '10vw',
+          height: '10vw',
+        }}
+      ></animated.div>
+      <animated.div
+        className="absolute bottom-32 left-3/4 transform translate-x-1/2 bg-purple-600 rounded-full opacity-90"
+        style={{
+          ...circleAnimation,
+          width: '16vw',
+          height: '16vw',
+        }}
       ></animated.div>
     </section>
   );
 };
 
 export default About;
-};
 
-export default About;
+
+
