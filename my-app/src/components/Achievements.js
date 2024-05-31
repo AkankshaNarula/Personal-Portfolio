@@ -32,7 +32,7 @@ const Achievements = () => {
             className='achievements-section' 
             style={{ backgroundColor: 'rgba(74, 20, 140, 0.8)', padding: '20px' }}
         >
-            <h2 className="text-3xl font-bold text-gray-200 mb-6">
+            <h2 className="text-center text-3xl font-bold text-gray-200 mb-6">
                 Achievements
             </h2>
             <ol className="items-center sm:flex">
