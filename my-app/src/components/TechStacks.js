@@ -1,6 +1,8 @@
 import React from "react";
+import { useSpring, animated } from "react-spring"; // Import react-spring library
 import BallCanvas from "./Ball";
 import SectionWrapper from "./Sectionwrapper";
+
 
 const technologies = [
   {
@@ -46,6 +48,13 @@ const technologies = [
 ];
 
 const TechStacks = () => {
+  // Use react-spring to animate the "Techstacks" text
+  const textSpring = useSpring({
+    from: { opacity: 0, transform: "translateY(-20px)" },
+    to: { opacity: 1, transform: "translateY(0)" },
+    config: { duration: 1000 },
+  });
+
   return (
     <section
       id="techstacks"
@@ -57,13 +66,12 @@ const TechStacks = () => {
             margin: 0;
             padding: 0;
             height: 100%;
-            background-image: url('/images/techbg2.png');
+            background-image: url('/images/aboutbg4.png');
             background-size: cover;
             background-position: center;
           }
         `}
       </style>
-      <div className="absolute inset-0 bg-black opacity-50"></div>
       <div className="flex flex-row flex-wrap justify-center gap-10">
         {technologies.map((technology) => (
           <div className="w-28 h-28" key={technology.name}>
@@ -71,9 +79,14 @@ const TechStacks = () => {
           </div>
         ))}
       </div>
+      {/* Animated "Techstacks" text */}
+      <animated.div style={textSpring}>
+        <h1 className="text-purple-500 text-4xl font-bold">Techstacks</h1>
+      </animated.div>
     </section>
   );
 };
 
 export default SectionWrapper(TechStacks, "");
+
 
