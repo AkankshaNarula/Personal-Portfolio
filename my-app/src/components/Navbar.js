@@ -34,9 +34,7 @@ const Navbar = () => {
           <li>
             <Link to="techstacks" smooth={true} duration={500} activeClass="text-yellow-500" className="block py-2 lg:py-0 hover:text-yellow-500 transition duration-300 cursor-pointer">Tech Stacks</Link>
           </li>
-          <li>
-            <Link to="codingprofiles" smooth={true} duration={500} activeClass="text-yellow-500" className="block py-2 lg:py-0 hover:text-yellow-500 transition duration-300 cursor-pointer">Coding Profiles</Link>
-          </li>
+          
           <li>
             <Link to="contactme" smooth={true} duration={500} activeClass="text-yellow-500" className="block py-2 lg:py-0 hover:text-yellow-500 transition duration-300 cursor-pointer">Contact Me</Link>
           </li>

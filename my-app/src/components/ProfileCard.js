@@ -7,7 +7,7 @@ const ProfileCard = ({ name, title, social }) => {
     <div className="max-w-sm rounded overflow-hidden shadow-lg bg-white m-4 transform hover:scale-105 transition-transform duration-300">
       <img
         className="w-full"
-        src='/images/techbg3.png' // Replace with actual image path
+        src='/images/techbg3.png' 
         alt={`${name}`}
       />
       <div className="px-6 py-4">

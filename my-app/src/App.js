@@ -4,7 +4,6 @@ import About from './components/About';
 import Achievements from './components/Achievements';
 import Projects from './components/Projects';
 import TechStacks from './components/TechStacks';
-import CodingProfiles from './components/CodingProfiles';
 import ContactMe from './components/ContactMe';
 import './index.css';
 
@@ -17,7 +16,6 @@ const App = () => {
         <Achievements />
         <Projects />
         <TechStacks />
-        <CodingProfiles />
         <ContactMe />
       </main>
     </div>

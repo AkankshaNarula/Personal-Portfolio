@@ -30,7 +30,7 @@ const Achievements = () => {
         <section 
             id='achievements' 
             className='achievements-section' 
-            style={{ backgroundColor: 'rgba(74, 20, 140, 0.8)', padding: '20px' }}
+            style={{ backgroundColor: 'rgba(74, 20, 140, 0.0)', padding: '20px' }}
         >
             <h2 className="text-center text-3xl font-bold text-gray-200 mb-6">
                 Achievements
